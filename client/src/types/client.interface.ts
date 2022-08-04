@@ -1,14 +1,17 @@
 export interface IClient {
-  id: string;
   name: string;
   email: string;
   phone: string;
 }
 
+export interface IClientDetails extends IClient {
+  id: string;
+}
+
 export interface IClientsData {
-  clients: IClient[];
+  clients: IClientDetails[];
 }
 
 export interface IDeletedClient {
-  deleteClient: IClient;
+  deleteClient: IClientDetails;
 }

@@ -1,35 +1,38 @@
 import { useMutation } from '@apollo/client';
 import { FaTrash } from 'react-icons/fa';
 import { DELETE_CLIENT } from '../mutations/clientMutations';
+import { deleteClient, deleteClientVariables } from '../mutations/__generated__/deleteClient';
 import { GET_CLIENTS } from '../queries/clientQueris';
-import { IClient, IClientsData } from '../types/client.interface';
+import { getClients, getClients_clients } from '../queries/__generated__/getClients';
 
 interface IClientRowProps {
-  client: IClient;
+  client: getClients_clients;
 }
 
 const ClientRow = ({ client }: IClientRowProps) => {
-  const [deleteClient] = useMutation<{ deleteClient: IClient }, { id: string }>(DELETE_CLIENT, {
+  const [deleteClient] = useMutation<deleteClient, deleteClientVariables>(DELETE_CLIENT, {
     variables: {
-      id: client.id,
+      id: String(client.id),
     },
     update(cache, { data }) {
       if (!data || !data.deleteClient) return;
 
-      const allClients = cache.readQuery<IClientsData>({
+      const allClients = cache.readQuery<getClients>({
         query: GET_CLIENTS,
       });
 
-      if (!allClients) return;
-
-      cache.writeQuery<IClientsData>({
+      cache.writeQuery<getClients>({
         query: GET_CLIENTS,
         data: {
-          clients: allClients.clients.filter((client) => client.id !== data.deleteClient.id),
+          clients:
+            allClients && allClients.clients
+              ? allClients.clients.filter((client) => client?.id !== data.deleteClient?.id)
+              : null,
         },
       });
     },
   });
+
   return (
     <tr>
       <td>{client.name}</td>

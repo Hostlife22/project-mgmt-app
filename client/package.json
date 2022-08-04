@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "schema:download": "apollo service:download --endpoint=http://localhost:5000/graphql ./src/graphql/graphql-schema.json",
+    "schema:generate-watch": "apollo codegen:generate --localSchemaFile=./src/graphql/graphql-schema.json --target=typescript --tagName=gql --watch"
   },
   "dependencies": {
     "@apollo/client": "^3.6.9",
