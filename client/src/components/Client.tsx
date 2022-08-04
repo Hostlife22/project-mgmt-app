@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
-import { GET_CLIENTS } from '../queries/clientQueris';
-import { getClients } from '../queries/__generated__/getClients';
+import { GET_CLIENTS } from '../apollo/queries/clientQueris';
+import { getClients } from '../apollo/queries/__generated__/getClients';
 import ClientRow from './ClientRow';
 import Spinner from './Spinner';
 

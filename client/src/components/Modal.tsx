@@ -1,10 +1,10 @@
 import { useMutation } from '@apollo/client';
 import { ChangeEvent, FormEvent, useCallback, useState } from 'react';
 import { FaUser } from 'react-icons/fa';
-import { ADD_CLIENT } from '../mutations/clientMutations';
-import { addClient, addClientVariables } from '../mutations/__generated__/addClient';
-import { GET_CLIENTS } from '../queries/clientQueris';
-import { getClients } from '../queries/__generated__/getClients';
+import { ADD_CLIENT } from '../apollo/mutations/clientMutations';
+import { addClient, addClientVariables } from '../apollo/mutations/__generated__/addClient';
+import { GET_CLIENTS } from '../apollo/queries/clientQueris';
+import { getClients } from '../apollo/queries/__generated__/getClients';
 
 interface IInputState {
   name: string;
