@@ -3,7 +3,7 @@
 ### [Site link](https://precious-malasada-e9ce53.netlify.app/)
 
 <kbd>
-  <img align="right" alt="img" src="client/src/assets/project.png"  />
+  <img align="right" alt="img" src="client/src/assets/project.png" width="600"  />
 </kbd>
 
 ### 🛠 The tech stack is:
