@@ -13,6 +13,12 @@ export enum ProjectStatus {
   progress = "progress",
 }
 
+export enum ProjectStatusUpdate {
+  completed = "completed",
+  new = "new",
+  progress = "progress",
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================

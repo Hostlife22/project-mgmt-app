@@ -45,7 +45,7 @@ const AddClientModal = () => {
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (Object.values(inputValues).every((value) => value === '')) {
+    if (Object.values(inputValues).some((value) => value === '')) {
       return alert('Please fill all fields');
     }
 

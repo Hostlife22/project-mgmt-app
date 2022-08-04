@@ -7,7 +7,8 @@ import {
 } from '../apollo/mutations/__generated__/deleteClient';
 
 import { GET_CLIENTS } from '../apollo/queries/clientQueris';
-import { getClients, getClients_clients } from '../apollo/queries/__generated__/getClients';
+import { GET_PROJECTS } from '../apollo/queries/projectQueris';
+import { getClients_clients } from '../apollo/queries/__generated__/getClients';
 
 interface IClientRowProps {
   client: getClients_clients;
@@ -18,23 +19,7 @@ const ClientRow = ({ client }: IClientRowProps) => {
     variables: {
       id: String(client.id),
     },
-    update(cache, { data }) {
-      if (!data || !data.deleteClient) return;
-
-      const allClients = cache.readQuery<getClients>({
-        query: GET_CLIENTS,
-      });
-
-      cache.writeQuery<getClients>({
-        query: GET_CLIENTS,
-        data: {
-          clients:
-            allClients && allClients.clients
-              ? allClients.clients.filter((client) => client?.id !== data.deleteClient?.id)
-              : null,
-        },
-      });
-    },
+    refetchQueries: [{ query: GET_CLIENTS }, { query: GET_PROJECTS }],
   });
 
   return (

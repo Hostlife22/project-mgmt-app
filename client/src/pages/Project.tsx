@@ -3,6 +3,8 @@ import { Link, useParams } from 'react-router-dom';
 import { GET_PROJECT } from '../apollo/queries/projectQueris';
 import { getProject, getProjectVariables } from '../apollo/queries/__generated__/getProject';
 import ClientInfo from '../components/ClientInfo';
+import DeleteProjectButton from '../components/DeleteProjectButton';
+import EditProjectForm from '../components/EditProjectForm';
 import Spinner from '../components/Spinner';
 
 type ProjectParamsType = {
@@ -30,6 +32,8 @@ const Project = () => {
           <h5 className="mt-3">Project Status</h5>
           <p className="lead">{data.project?.status}</p>
           {data.project?.client && <ClientInfo client={data.project.client} />}
+          {data.project && <EditProjectForm project={data.project} />}
+          {data.project?.id && <DeleteProjectButton projectId={data.project.id} />}
         </div>
       )}
     </>
