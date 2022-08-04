@@ -1,9 +1,9 @@
 # Project-mgmt-app
 
-### [Site link](https://precious-malasada-e9ce53.netlify.app/)
+### [Site link](https://project-mgmt-app2022.herokuapp.com/)
 
 <kbd>
-  <img align="right" alt="img" src="client/src/assets/project.png" width="600"  />
+  <img align="right" alt="img" src="client/src/assets/project.png" width="700"  />
 </kbd>
 
 ### 🛠 The tech stack is:
