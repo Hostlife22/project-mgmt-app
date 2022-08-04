@@ -18,8 +18,6 @@ const Project = () => {
   if (loading) return <Spinner />;
   if (error) return <p>Somithing Went Wrong...</p>;
 
-  console.log(id);
-
   return (
     <>
       {!loading && !error && data && (

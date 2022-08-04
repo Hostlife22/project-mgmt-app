@@ -7,6 +7,12 @@
 // START Enums and Input Objects
 //==============================================================
 
+export enum ProjectStatus {
+  completed = "completed",
+  new = "new",
+  progress = "progress",
+}
+
 //==============================================================
 // END Enums and Input Objects
 //==============================================================

@@ -12,7 +12,7 @@ interface IInputState {
   phone: string;
 }
 
-const Modal = () => {
+const AddClientModal = () => {
   const [inputValues, setInputValues] = useState<IInputState>({
     name: '',
     email: '',
@@ -50,6 +50,7 @@ const Modal = () => {
     }
 
     addClient();
+    setInputValues({ name: '', email: '', phone: '' });
   };
   return (
     <>
@@ -128,4 +129,4 @@ const Modal = () => {
   );
 };
 
-export default Modal;
+export default AddClientModal;
